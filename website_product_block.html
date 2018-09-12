@@ -1,0 +1,122 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script language="javascript">
+		    function changeImage(num) {
+				var bigPicSource = document.getElementById("big-image").src
+				if( num == 1){
+					document.getElementById("big-image").src = document.getElementById("small-image-1").src;
+					document.getElementById("small-image-1").src = document.getElementById("small-image-2").src
+					document.getElementById("small-image-2").src = bigPicSource
+				}
+				else{
+					document.getElementById("big-image").src = document.getElementById("small-image-2").src;
+					document.getElementById("small-image-2").src = bigPicSource
+					
+				} 
+				
+		    }
+		</script>
+		<style>
+			.column {
+				float: left;
+				width: 50%;
+			}
+		
+			.row:after {
+				content: "";
+				display: table;
+				clear: both;
+			}
+			#big-image {
+			    display:block;
+				height: 500px;
+				width: 500px;
+				right: 0;
+				bottom: 0;
+				max-width: 100%;
+    			height: auto;
+    			width: auto\9;
+			}
+			.small-image {
+				transition: .5s ease;
+				display: block;
+				height: 150px;
+				width: 150px;
+			}
+            #small-image-1{
+                left: 0;
+                bottom: 0;
+                position: absolute;
+            }
+            #small-image-2 {
+                left: 155px;
+                bottom: 0;
+                position: absolute;
+            }
+			.button {
+				color: white;
+				background-color: green;
+    			        /*adjust the roundness*/
+			        border-radius: 20px;
+			        //moz-border-radius: 4px;
+			        //webkit-border-radius: 4px;
+			        /*adjust height and width*/
+			        height: 40px;
+			        width: 114px; 
+			        /*change border colour*/
+			}
+		
+			@media only screen and (max-width: 768px) {
+			    /* For mobile phones: */
+				img {
+				    display: block;
+				    margin-left: auto;
+				    margin-right: auto;
+				}
+				button {
+				    display: block;
+				    margin-left: auto;
+				    margin-right: auto;
+				}
+			    .column {
+			        width: 100%;
+			    }
+			    #big-image{
+			    	height: auto;
+			    	width: 100%;
+			    }
+			   	.small-image{
+			   		height: auto;
+			   		width: 100%;
+			   	}
+			    #small-image-1{
+					left:0;
+					position: static;
+					bottom: auto;
+			    }
+			    #small-image-2{
+					left:0;
+					bottom:auto;
+					position: static;
+			    }
+			}
+		</style>
+	</head>
+	<body>
+		<div class="row">
+			<div class="column">
+				<h1>Our Products</h1>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+				<button class="button" id="join">Buy Now</button>
+					<p><br></p>
+				
+                   
+                        <img onclick="changeImage(1)" class="small-image" id="small-image-1" src="https://hdlogo.files.wordpress.com/2014/02/inter-milan-hd-logo.png" alt="small-image-1">
+					    <img onclick="changeImage(2)" class="small-image" id="small-image-2" src="http://www.everydaytips.co.uk/wp-content/uploads/2016/06/liverpool-logo.png" alt="small-image-2">
+                        
+			</div>
+			<div class="column" align="center"><img src="https://clipart.info/images/ccovers/1503438191club-atletico-de-madrid-football-logo-png-png-new-logo-png-new-crest-new-badge.png" alt="orbin" id="big-image"></div>
+		</div>
+	</body>
+</html>
